@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int *ptr = arr;
+    int i, n = 5;
+
+    printf("Using Array Indexing:\n");
+    for(i = 0; i < n; i++) {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    printf("\nUsing Pointer Notation:\n");
+    for(i = 0; i < n; i++) {
+        printf("*(ptr + %d) = %d\n", i, *(ptr + i));
+    }
+
+    printf("\nAddresses of Elements:\n");
+    for(i = 0; i < n; i++) {
+        printf("Address of arr[%d] = %p\n", i, (void *)(ptr + i));
+    }
+
+    printf("\nAddress Difference Between Consecutive Elements:\n");
+    for(i = 0; i < n - 1; i++) {
+        printf("arr[%d] to arr[%d] = %ld bytes\n",
+               i, i + 1,
+               (char *)(ptr + i + 1) - (char *)(ptr + i));
+    }
+
+    return 0;
+}
