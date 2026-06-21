@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *left,*right;
+};
+
+struct node* newNode(int x)
+{
+    struct node* t=malloc(sizeof(struct node));
+    t->data=x;
+    t->left=t->right=NULL;
+    return t;
+}
+
+struct node* rightRotate(struct node* y)
+{
+    struct node* x=y->left;
+    y->left=x->right;
+    x->right=y;
+    return x;
+}
+
+int main()
+{
+    struct node *root=newNode(30);
+    root->left=newNode(20);
+    root->left->left=newNode(10);
+
+    root=rightRotate(root);
+
+    printf("Root=%d",root->data);
+}
