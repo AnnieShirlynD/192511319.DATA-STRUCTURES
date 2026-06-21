@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int main()
+{
+    int hash[10];
+    int a[]={15,25,35};
+    int i,index;
+
+    for(i=0;i<10;i++)
+        hash[i]=-1;
+
+    for(i=0;i<3;i++)
+    {
+        index=a[i]%10;
+
+        while(hash[index]!=-1)
+            index=(index+1)%10;
+
+        hash[index]=a[i];
+    }
+
+    for(i=0;i<10;i++)
+        printf("%d ",hash[i]);
+}
